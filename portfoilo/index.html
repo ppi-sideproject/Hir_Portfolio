@@ -1,12 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Day 1 - HTML Basics</title>
-  </head>
-  <body>
-    <h1>Welcome to Frontend Bootcamp</h1>
-    <p>This is your first HTML page.</p>
-  </body>
+    <title>Mandala Art Classes</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <!-- Header -->
+     
+    <header class="header">
+        <div class="title-with-logo">
+            <img src="mandala logo .jpg"alt="Mandala Logo" class="logo">
+            <h1 class="logo">Abstract Mandala</h1>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#our-classes">Classes</a></li>
+                <li><a href="#contact">Enroll</a></li>
+            </ul>
+        </nav>
+         <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+      
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Learn the Art of Mandala</h2>
+            <p>Join our creative mandala drawing classes and unlock your artistic potential.</p>
+            <a href="#contact" class="btn">Join Now</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>About Our Classes</h2>
+        <p>We teach beginners and professionals to draw beautiful mandala patterns with guided steps, creativity, and practice.</p>
+    </section>
+
+    <!-- Classes Section -->
+
+    <section class="classes" id="our-classes">
+        <h2>Our Mandala Classes</h2>
+        <p class="section-description">Select a class below to see what you'll learn and what kind of art you'll create!</p> <div id="classList">
+            <button data-class="beginner">Beginner Mandala Workshop</button>
+            <button data-class="intermediate">Intermediate Pattern Building</button>
+            <button data-class="advanced">Advanced Mandala Composition</button>
+            <button data-class="kids">Kids Mandala Creativity Class</button>
+        </div>
+
+        <div class="class-details-container">
+            <p id="classPlaceholder" style="text-align: center; color: #7a4c27; font-style: italic;">Click a class to view sample artwork.</p>
+            
+            <div id="classImages" class="class-images"></div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section" id="contact">
+        <h2>Enroll Now</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <select id="preferredClass" name="preferredClass" required >
+                <option value="" disabled selected>Select your class</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+                <option value="masterclass">Masterclass</option>
+            </select>
+            <textarea placeholder="Your Message" rows="5"></textarea>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" title="Go to top">^</button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p> &copy; 2025 Mandala Art Studio. Crafted with creativity.</p>
+    </footer>
+
+    <script>
+        // Get the button
+        const backToTopBtn = document.getElementById("backToTopBtn");
+
+        // Show button after scrolling 200px
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+
+        // Scroll to top on click
+        backToTopBtn.addEventListener("click", function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+
+        const classImagesData = {
+            beginner: [
+                "download.jpeg",
+                "download.jpeg",
+                "download.jpeg"
+            ],
+            intermediate: [
+                "download.jpeg",
+                "download.jpeg",
+                "download.jpeg",
+                "download.jpeg"
+            ],
+            advanced: [
+                "download.jpeg",
+                "download.jpeg",
+                "download.jpeg"
+            ],
+            kids: [
+                "download.jpeg",
+                "download.jpeg"
+            ]
+        };
+
+        const buttons = document.querySelectorAll("#classList button");
+        const imageContainer = document.getElementById("classImages");
+
+        buttons.forEach(btn => {
+            btn.addEventListener("click", () => {
+
+                // Remove previous selection highlight
+                buttons.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+
+                document.getElementById("classPlaceholder").style.display = 'none'
+
+                // Load images
+                const type = btn.getAttribute("data-class");
+                const images = classImagesData[type];
+
+                // Clear previous images
+                imageContainer.innerHTML = "";
+
+                // Add new images
+                images.forEach(src => {
+                    const img = document.createElement("img");
+                    img.src = src;
+                    imageContainer.appendChild(img);
+                });
+            });
+        });
+
+        
+
+        const sections = document.querySelectorAll('.about, #our-classes, .form-section, .class-details-container');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('section-visible');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+    
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+            
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerOffset = 120;
+                    
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                    
+                    const navbar = document.querySelector(".navbar");
+                    if (navbar.classList.contains('active')) {
+                        navbar.classList.remove('active');
+                    }
+                }
+            });
+        });        
+
+        const menuToggle = document.getElementById("menuToggle");
+        const navbar = document.querySelector(".navbar");
+
+        menuToggle.addEventListener("click", function() {
+            navbar.classList.toggle("active");
+        });
+
+    </script>
+
+    
+</body>
 </html>

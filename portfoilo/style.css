@@ -1,0 +1,415 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    scroll-padding-top:120px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #faf5f0;
+    color: #333;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #7a4c27;
+    white-space: nowrap;
+}
+
+.title-with-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;  
+    flex-shrink: 0;
+}
+
+.title-with-logo .logo {
+    width: 60px;      
+    height: auto;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #7a4c27;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #c97b4b;
+}
+
+/* Mobile Menu Toggle Button */
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #7a4c27; 
+    padding: 10px;
+    z-index: 101; 
+}
+
+/* Class to show the menu */
+.navbar.active {
+    display: flex ; 
+}
+
+
+/* Hero Section */
+.hero {
+    height: 75vh;
+    background: url('https://www.pelago.com/img/products/SG-Singapore/mandala-art-class-workshop/0824-0552_mandala-art-class-workshop-singapore-pelago1.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.hero-content h2 {
+    font-size: 48px;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin: 15px 0 25px;
+    color: #fff;
+}
+
+.btn {
+    padding: 12px 25px;
+    background: #c97b4b;
+    color: white;
+    border: none;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+    transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+
+}
+
+.btn:hover {
+    background: #7a4c27;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* About Section , Classes , form */
+.about,
+.form-section,
+.classes {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.about h2,
+.form-section h2,
+.classes h2 {
+    margin-bottom: 20px;
+    color: #7a4c27;
+    font-size: 32px;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: auto;
+    color: #5a4532;
+}
+
+.section-description {
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto 30px auto; 
+    color:#5a4532;
+}
+
+#classList {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap; 
+    gap: 15px;
+    margin-bottom: 40px; 
+}
+
+#classList button {
+    width: 250px; 
+    padding: 15px 20px; 
+    border: none; 
+    border-radius: 8px;
+    background: #e9e5e1; 
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
+}
+
+#classList button:hover {
+    background: #c97b4b; 
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+#classList button.active {
+    background: #7a4c27;
+    color: white;
+    box-shadow: 0 6px 10px rgba(122, 76, 39, 0.3); 
+}
+
+
+.class-details-container {
+    max-width: 900px; 
+    margin: 40px auto 0; 
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    min-height: 200px; 
+}
+
+.class-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.class-images img {
+    width: 200px;
+    height: 150px; 
+    object-fit: cover; 
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.class-images img:hover {
+    transform:scale(1.05);
+}
+
+form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input,
+textarea {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #c7b49e;
+    font-size: 16px;
+}
+
+textarea {
+    resize: none;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 20px 0;
+    border: 1px solid #c7b49e;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+select:focus {
+    border-color: #333;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    outline: none;
+}
+
+
+#backToTopBtn {
+    display: none; 
+    position: fixed; 
+    bottom: 40px;
+    right: 40px;
+    z-index: 100; 
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    padding: 12px 18px;
+    border-radius: 50%;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#backToTopBtn:hover {
+    background-color: #555;
+    transform: scale(1.1);
+}
+
+
+
+/* Keyframe for Image  */
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    color: #7a4c27;
+    margin-top: 40px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    bottom: 0;
+}
+
+
+
+
+
+
+/* Media Query for Mobile Phones  */
+@media (max-width: 600px) {
+    .header {
+        flex-direction: row; 
+        justify-content: space-between; 
+        align-items: center;
+        padding: 10px 15px;
+    }
+    .menu-toggle {
+        display: block; 
+    }
+
+    
+    .navbar {
+        display: none;
+        position: absolute;
+        top: 60px; 
+        right: 0;
+        width: 150px;
+        background-color: #ffffff; 
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        z-index: 99;
+    }
+
+    
+    .navbar ul {
+        flex-direction: column; 
+        align-items: center;
+        gap: 15px; 
+    }
+
+    .title-with-logo .logo{
+        width: 50px;      
+        height: auto;
+        font-size: 16px;
+        white-space: nowrap;
+    }
+
+    .title-with-logo {
+        margin: 0;
+        border: 0;
+        display: flex;
+        
+        gap: 5px;  
+    
+    }
+
+    .hero {
+        height: 60vh; 
+    }
+
+    .hero-content h2 {
+        font-size: 32px; 
+    }
+    
+    .hero-content p {
+        font-size: 16px;
+    }
+    
+   
+    #classList {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #classList button {
+        width: 90%; 
+        max-width: 300px;
+    }
+
+
+    .class-images {
+        flex-direction: column; 
+        gap: 10px;
+    }
+    
+    .class-images img {
+        width: 80%; 
+        height: auto;
+        max-width: 300px;
+        margin: 0 auto; 
+    }
+
+    .form-section h2 {
+        font-size: 28px;
+    }
+
+    #backToTopBtn {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 14px;
+        font-size: 16px;
+    }
+
+    
+}
