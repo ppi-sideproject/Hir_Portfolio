@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+<!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+NO:wght@100..400&display=swap" rel="stylesheet"/> -->
 </head>
 <body>
     <!-- Header -->
@@ -24,6 +25,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#our-classes">Classes</a></li>
                 <li><a href="#contact">Enroll</a></li>
+                <li><a href="#contact-section">Contact Us</a></li>
             </ul>
         </nav>
          <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
@@ -61,162 +63,117 @@
         <div class="class-details-container">
             <p id="classPlaceholder" style="text-align: center; color: #7a4c27; font-style: italic;">Click a class to view sample artwork.</p>
             
-            <div id="classImages" class="class-images"></div>
+            <div id="classImages" class="class-images image-carousel"></div>
         </div>
     </section>
+<!-- fee structure -->
+    <section id="fee-structure" class="fee-section">
+    <h2 class="section-title">Fee Structure</h2>
+    
+    <div class="fee-container">
+        <div class="fee-card">
+            <h3>Beginner Course</h3>
+            <p class="price">₹1,999</p>
+            <p>Duration: 4 Weeks</p>
+        </div>
+
+        <div class="fee-card">
+            <h3>Intermediate Course</h3>
+            <p class="price">₹2,999</p>
+            <p>Duration: 6 Weeks</p>
+        </div>
+
+        <div class="fee-card">
+            <h3>Advanced Course</h3>
+            <p class="price">₹3,999</p>
+            <p>Duration: 8 Weeks</p>
+        </div>
+
+        <div class="fee-card">
+            <h3>Kids Mandala</h3>
+            <p class="price">₹1,499</p>
+            <p>Duration: 4 Weeks</p>
+        </div>
+    </div>
+</section>
+
 
     <!-- Form Section -->
-    <section class="form-section" id="contact">
+    <section class="form-section" >
         <h2>Enroll Now</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <select id="preferredClass" name="preferredClass" required >
+        <form id="contact" autocomplete="off">
+            <input type="text" id="name" placeholder="Your Name" autocomplete="off"  >
+            <small id="nameError" class="error"></small>
+
+            <input type="email" id="email" placeholder="Your Email" autocomplete="off">
+            <small id="emailError" class="error"></small>
+
+            <select id="classType"   >
                 <option value="" disabled selected>Select your class</option>
                 <option value="beginner">Beginner</option>
                 <option value="intermediate">Intermediate</option>
                 <option value="advanced">Advanced</option>
                 <option value="masterclass">Masterclass</option>
             </select>
+            <small id="classError" class="error"></small>
+
             <textarea placeholder="Your Message" rows="5"></textarea>
             <button type="submit" class="btn">Submit</button>
         </form>
+       
     </section>
+
+ <section id="contact-section" class="contact-section">
+
+    <h2 class="contact-title">Contact Us</h2>
+
+    <div class="contact-floating-box">
+
+        <div class="contact-card" id="callCard">
+            <i class="fas fa-phone-alt"></i>
+            <h3>Call Us</h3>
+            <p>+91 98765 43210</p>
+        </div>
+
+        <div class="contact-card" id="emailCard">
+            <i class="fas fa-envelope"></i>
+            <h3>Email</h3>
+            <p>mandalaart@gmail.com</p>
+        </div>
+
+        <div class="contact-card" id="instagramcard">
+            <i class="fa-brands fa-instagram"></i>
+            <h3>Instagram</h3>
+            <p>Follow us on Instagram for updates & artwork!</p>
+        </div>
+
+    </div>
+
+    <div class="map-box">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.0635169616535!2d72.85724377466997!3d19.279603845550206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b04e31be1a2b%3A0x9705962d03eefb19!2sB-50%2C%20Mira%20Rd%2C%20Sector%201%2C%20Shanti%20Nagar%2C%20Mira%20Road%20East%2C%20Mira%20Bhayandar%2C%20Maharashtra%20401107!5e0!3m2!1sen!2sin!4v1764931716658!5m2!1sen!2sin"
+            width="100%" 
+            height="300" 
+            style="border:0;" 
+            allowfullscreen="">
+        </iframe>
+    </div>
+
+</section>
+
+
+
 
     <!-- Back to Top Button -->
     <button id="backToTopBtn" title="Go to top">^</button>
+
 
     <!-- Footer -->
     <footer class="footer">
         <p> &copy; 2025 Mandala Art Studio. Crafted with creativity.</p>
     </footer>
 
-    <script>
-        // Get the button
-        const backToTopBtn = document.getElementById("backToTopBtn");
-
-        // Show button after scrolling 200px
-        window.onscroll = function() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                backToTopBtn.style.display = "block";
-            } else {
-                backToTopBtn.style.display = "none";
-            }
-        };
-
-        // Scroll to top on click
-        backToTopBtn.addEventListener("click", function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-
-        const classImagesData = {
-            beginner: [
-                "download.jpeg",
-                "download.jpeg",
-                "download.jpeg"
-            ],
-            intermediate: [
-                "download.jpeg",
-                "download.jpeg",
-                "download.jpeg",
-                "download.jpeg"
-            ],
-            advanced: [
-                "download.jpeg",
-                "download.jpeg",
-                "download.jpeg"
-            ],
-            kids: [
-                "download.jpeg",
-                "download.jpeg"
-            ]
-        };
-
-        const buttons = document.querySelectorAll("#classList button");
-        const imageContainer = document.getElementById("classImages");
-
-        buttons.forEach(btn => {
-            btn.addEventListener("click", () => {
-
-                // Remove previous selection highlight
-                buttons.forEach(b => b.classList.remove("active"));
-                btn.classList.add("active");
-
-                document.getElementById("classPlaceholder").style.display = 'none'
-
-                // Load images
-                const type = btn.getAttribute("data-class");
-                const images = classImagesData[type];
-
-                // Clear previous images
-                imageContainer.innerHTML = "";
-
-                // Add new images
-                images.forEach(src => {
-                    const img = document.createElement("img");
-                    img.src = src;
-                    imageContainer.appendChild(img);
-                });
-            });
-        });
-
-        
-
-        const sections = document.querySelectorAll('.about, #our-classes, .form-section, .class-details-container');
-
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1 
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('section-visible');
-                    observer.unobserve(entry.target); 
-                }
-            });
-        }, observerOptions);
-
-    
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-            
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    const headerOffset = 120;
-                    
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-                    
-                    const navbar = document.querySelector(".navbar");
-                    if (navbar.classList.contains('active')) {
-                        navbar.classList.remove('active');
-                    }
-                }
-            });
-        });        
-
-        const menuToggle = document.getElementById("menuToggle");
-        const navbar = document.querySelector(".navbar");
-
-        menuToggle.addEventListener("click", function() {
-            navbar.classList.toggle("active");
-        });
-
-    </script>
+    <script src="script.js"></script>
 
     
 </body>
