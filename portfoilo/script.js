@@ -51,52 +51,8 @@ document.getElementById("contact").addEventListener("submit", function (e) {
     if (!isValid) {
         e.preventDefault();
     }
+
 });
-
-
-// NAME LIVE VALIDATION
-nameInput.addEventListener("input", () => {
-    if (/^[A-Za-z ]+$/.test(nameInput.value.trim())) {
-        nameInput.classList.add("valid");
-        nameInput.classList.remove("invalid");
-        nameError.style.display = "none";
-    } else {
-        nameInput.classList.add("invalid");
-        nameInput.classList.remove("valid");
-        nameError.style.display = "block";
-        nameError.innerText = "Name can contain only alphabets";
-    }
-});
-
-// EMAIL LIVE VALIDATION
-emailInput.addEventListener("input", () => {
-    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (pattern.test(emailInput.value.trim())) {
-        emailInput.classList.add("valid");
-        emailInput.classList.remove("invalid");
-        emailError.style.display = "none";
-    } else {
-        emailInput.classList.add("invalid");
-        emailInput.classList.remove("valid");
-        emailError.style.display = "block";
-        emailError.innerText = "Please enter a valid email";
-    }
-});
-
-// DROPDOWN LIVE VALIDATION
-classSelect.addEventListener("change", () => {
-    if (classSelect.value !== "") {
-        classSelect.classList.add("valid");
-        classSelect.classList.remove("invalid");
-        classError.style.display = "none";
-    } else {
-        classSelect.classList.add("invalid");
-        classSelect.classList.remove("valid");
-        classError.style.display = "block";
-        classError.innerText = "Please select a class";
-    }
-});
-
 
         const backToTopBtn = document.getElementById("backToTopBtn");
 
@@ -252,19 +208,17 @@ function startAutoScroll(container) {
     }
 }
 
-
-// PHONE CALL
-document.getElementById("callCard").addEventListener("click", function () {
-    window.location.href = "tel:+919876543210";
+//CALL
+document.getElementById("callCard").addEventListener("click", () => {
+    window.location.href = "tel:+919326288607";
 });
+//WHATSAPP
+function openWhatsapp() {
+    window.open ("https://wa.me/7208610469");
+};
 
-// EMAIL
-document.getElementById("emailCard").addEventListener("click", function () {
-    window.location.href = "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox";
-});
-
-// WHATSAPP
-document.getElementById("instagramcard").addEventListener("click", function () {
-    window.location.href = "https://www.instagram.com/hir.sanghani/";
-});
+// INSTAGRAM
+function openInstagram() {
+    window.open ("https://www.instagram.com/hir.sanghani/");
+};
 

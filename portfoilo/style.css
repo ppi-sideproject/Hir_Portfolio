@@ -379,9 +379,9 @@ select.invalid {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-    position: relative;
+    position: static;
     top: 10px;
-    z-index: 5;
+
 }
 
 /* CONTACT CARDS */
@@ -394,6 +394,7 @@ select.invalid {
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     cursor: pointer;
     transition: transform 0.4s ease, box-shadow 0.3s ease;
+    
 }
 
 
@@ -405,8 +406,26 @@ select.invalid {
 
 .contact-card i {
     font-size: 40px;
-    color: #c05a24;
     margin-bottom: 10px;
+}
+
+.phone-icon{
+    font-size: 40px;
+    color: blue;
+}
+
+.whatsapp-icon{
+    font-size: 40px;
+    color: green;
+}
+
+.instagram-icon {
+    font-size: 40px;
+    background: radial-gradient(circle at 30% 30%,
+        #fdf497 0%, #fdf497 5%,
+        #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .contact-card h3 {
@@ -426,11 +445,8 @@ select.invalid {
     box-shadow: 0 5px 15px rgba(0,0,0,0.15);
     max-width: 700px;
     margin: 40px auto 0;
+
 }
-
-
-
-
 
 /* Keyframe for Image  */
 @keyframes fadeInSlide {
